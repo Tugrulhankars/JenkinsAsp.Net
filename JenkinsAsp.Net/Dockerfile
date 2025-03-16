@@ -11,10 +11,10 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0-nanoserver-1809 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["JenkinsAsp.Net/JenkinsAsp.Net.csproj", "./"]
+COPY ["JenkinsAsp.Net.csproj", "./"]
 RUN dotnet restore "./JenkinsAsp.Net.csproj"
 COPY . .
-WORKDIR "/src/JenkinsAsp.Net"
+WORKDIR "/src"
 RUN dotnet build "JenkinsAsp.Net.csproj" -c %BUILD_CONFIGURATION% -o /app/build
 
 FROM build AS publish
