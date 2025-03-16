@@ -10,7 +10,7 @@ ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 
 # Correct the path to the JenkinsAsp.Net.csproj file
-COPY ["JenkinsAsp.Net/JenkinsAsp.Net.csproj", "./"]
+COPY ["JenkinsAsp.Net.csproj", "./"]
 RUN dotnet restore "./JenkinsAsp.Net.csproj"
 
 # Copy the rest of the source code
